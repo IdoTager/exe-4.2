@@ -1,7 +1,0 @@
-QMainWindow, QWidget { background-color: #fdf6ec; color: #3b2f2f; font-size: 14px; }
-QPushButton { background-color: #e86a92; color: white; border: none; border-radius: 6px; padding: 8px 16px; }
-QPushButton:hover { background-color: #f0829f; }
-QPushButton:pressed { background-color: #c9557a; }
-QPushButton#about { background-color: #8a7f7f; }
-QLabel#title { font-size: 20px; font-weight: bold; color: #c9557a; }
-QToolBar { background-color: #f5e6d3; border: none; }
