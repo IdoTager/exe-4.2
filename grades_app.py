@@ -113,8 +113,14 @@ class GradesWindow(QMainWindow):
 
     def points_entered(self):
         points = self.points_spin.value()
-        # TODO: run over the lists: corrected = original + points, but not more than 100,
-        #       then call self.update_table()
+        
+        for i in range(len(self.original_grades)):
+            new_grade = self.original_grades[i] + points
+            if new_grade > 100:
+                new_grade = 100
+            self.corrected_grades[i] = new_grade
+
+        self.update_table()
 
     def file_update_clicked(self):
         # TODO: overwrite self.selected_file - same headers, only the corrected grades.
