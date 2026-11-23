@@ -123,9 +123,16 @@ class GradesWindow(QMainWindow):
         self.update_table()
 
     def file_update_clicked(self):
-        # TODO: overwrite self.selected_file - same headers, only the corrected grades.
-        #       Then open it:  open_with_default_program(self.selected_file)
-        pass
+        if self.selected_file == '':
+            return
+
+        with open(self.selected_file, "w") as f:
+            f.write(self.header)
+            for i in range(len(self.student_ids)):
+                f.write(f"{self.student_ids[i]},{self.corrected_grades[i]}\n")
+
+        open_with_default_program(self.selected_file)
+    
 
 
 if __name__ == "__main__":
