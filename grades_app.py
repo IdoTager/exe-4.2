@@ -91,8 +91,25 @@ class GradesWindow(QMainWindow):
         file_name, _ = QFileDialog.getOpenFileName(self, "Choose the students file", "", "CSV files (*.csv)")
         if file_name == '':
             return
-        # TODO: save the name in self.selected_file, open the file (see "files" topic),
-        #       fill the three lists, then call self.update_table()
+        self.selected_file = file_name
+        self.student_ids = []
+        self.original_grades = []
+        self.corrected_grades = []
+
+        with open(self.selected_file, "r") as f:
+            self.header = f.readline()
+            for line in f:
+                line = line.strip()
+                if line == '':
+                    continue
+                parts = line.split(",")
+                student_id = parts[0]
+                grade = int(parts[1])
+                self.student_ids.append(student_id)
+                self.original_grades.append(grade)
+                self.corrected_grades.append(grade)
+
+        self.update_table()
 
     def points_entered(self):
         points = self.points_spin.value()

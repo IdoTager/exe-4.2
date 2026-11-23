@@ -11,10 +11,9 @@ class AboutWindow(QWidget):
         self.setWindowTitle("About")
         self.setGeometry(550, 100, 380, 150)
 
-        # TODO: write your name and your real GitHub repository address
         self.info_label = QLabel(
-            "Grades Correction\nWritten by: <YOUR NAME>\n"
-            "GitHub: https://github.com/<YOUR-USERNAME>/<YOUR-REPO>")
+            "Grades Correction\nWritten by: IdoTager\n"
+            "GitHub: https://github.com/IdoTager/exe-4.2")
         self.info_label.setOpenExternalLinks(True)
 
         layout = QVBoxLayout()
